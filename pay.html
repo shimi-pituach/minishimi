@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>תשלום ב-USDC — מיני-שימי</title>
+<style>
+:root{--teal:#075E54;--green:#25D366}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,Arial,sans-serif}
+body{background:#f5f7f8;color:#111b21;line-height:1.7}
+.wrap{max-width:640px;margin:0 auto;padding:48px 20px}
+h1{color:#075E54;font-size:1.7rem;margin-bottom:8px}
+.sub{color:#54656f;margin-bottom:28px}
+.card{background:#fff;border-radius:14px;padding:28px;margin-bottom:20px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.card h2{font-size:1.1rem;color:#075E54;margin-bottom:14px}
+.addr{background:#f0f4f5;border:1px dashed #9ab3ae;border-radius:10px;padding:14px;font-family:monospace;font-size:.85rem;word-break:break-all;direction:ltr;text-align:left;margin-bottom:10px}
+button{background:#25D366;border:none;color:#fff;font-weight:700;padding:10px 22px;border-radius:8px;cursor:pointer;font-size:.95rem}
+button:hover{opacity:.9}
+.ok{color:#25D366;font-weight:700;display:none;margin-top:8px}
+.hint{font-size:.85rem;color:#54656f}
+.cta{display:block;text-align:center;background:#25D366;color:#fff;text-decoration:none;font-weight:700;font-size:1.05rem;padding:16px;border-radius:12px;margin-top:8px}
+.warn{background:#fff8e1;border-radius:10px;padding:14px;font-size:.85rem;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>🪙 תשלום ב-USDC</h1>
+<p class="sub">התקנת מיני-שימי — 100 USDC, תשלום חד-פעמי.</p>
+
+<div class="card">
+<h2>1 · שלח 100 USDC לאחת מהכתובות הרשמיות של רשת שימי</h2>
+<h2 style="font-size:.95rem">USDC ברשת Base (מומלץ — עמלה נמוכה):</h2>
+<div class="addr" id="a1">0x5cfBE46F7CAC737F7f68Ca246e6Db0b7dCC9847E</div>
+<button onclick="cp('a1')">העתק כתובת</button><span class="ok" id="ok1">✓ הועתק</span>
+<h2 style="font-size:.95rem;margin-top:18px">USDC / ETH בכל רשת EVM:</h2>
+<div class="addr" id="a2">0xf6f7ee125d3290829f807d362833e94cc4509652</div>
+<button onclick="cp('a2')">העתק כתובת</button><span class="ok" id="ok2">✓ הועתק</span>
+</div>
+
+<div class="card">
+<h2>2 · אחרי התשלום — שלח אישור</h2>
+<p class="hint">צלם/העתק את מזהה העסקה (TX) ושלח לנו בוואטסאפ, ונתחיל בהתקנה מיד.</p>
+<a class="cta" href="https://wa.me/15716880338?text=%D7%A9%D7%99%D7%9C%D7%9E%D7%AA%D7%99%20100%20USDC%20%D7%9C%D7%94%D7%AA%D7%A7%D7%A0%D7%AA%20%D7%9E%D7%99%D7%A0%D7%99-%D7%A9%D7%99%D7%9E%D7%99.%20TX%3A">💬 שלח אישור תשלום בוואטסאפ</a>
+</div>
+
+<div class="warn">⚠️ לא לשלוח לכתובת שהגיעה ממקום אחר — אלו הכתובות הרשמיות היחידות של רשת שימי. מעדיפים לשלם בש״ח / העברה? <a href="https://wa.me/15716880338?text=%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9C%D7%9D%20299%20%D7%A9%22%D7%97%20%D7%91%D7%94%D7%A2%D7%91%D7%A8%D7%94" style="color:#075E54;font-weight:700">תאמו איתנו בוואטסאפ</a>.</div>
+
+<p style="text-align:center;margin-top:24px"><a href="index.html" style="color:#075E54">← חזרה לדף מיני-שימי</a></p>
+</div>
+<script>
+function cp(id){
+const t=document.getElementById(id).textContent.trim();
+navigator.clipboard.writeText(t).then(()=>{const ok=document.getElementById('ok'+id.slice(-1));ok.style.display='inline'}).catch(()=>{
+const r=document.createRange();r.selectNode(document.getElementById(id));getSelection().removeAllRanges();getSelection().addRange(r);document.execCommand('copy');document.getElementById('ok'+id.slice(-1)).style.display='inline'})}
+</script>
+</body>
+</html>
